@@ -14,33 +14,6 @@ body {
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Animation Adjustments */
-@media (max-width: 768px) {
-  /* Reduce or remove animations on mobile */
-  .hero-text,
-  .cta-button {
-    animation: none;
-  }
-
-  .hero {
-    animation: none;
-  }
-
-  .about::before,
-  .about::after {
-    animation: none;
-  }
-
-  .about .animated-title,
-  .about .subtext {
-    animation: none;
-  }
-
-  .experience .card {
-    transition: transform 0.3s ease;
-  }
-}
-
 /* Hero Section */
 .hero {
   height: 100vh;
@@ -50,48 +23,11 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: gradientAnimation 10s ease infinite;
-}
-
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 .hero-text {
   font-size: clamp(2rem, 10vw, 4rem); /* Dynamic size */
   color: #fff;
-  animation: glow 1.5s infinite alternate;
-  position: relative;
-  will-change: transform, opacity;
-}
-
-.hero-text::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transform: translate(-50%, -50%) rotate(0deg);
-  animation: rotateGlow 10s linear infinite;
-  border-radius: 50%;
-}
-
-@keyframes rotateGlow {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 10px #00F5FF, 0 0 20px #00F5FF, 0 0 30px #00F5FF;
-  }
-  100% {
-    text-shadow: 0 0 20px #00F5FF, 0 0 40px #00F5FF, 0 0 50px #00F5FF;
-  }
 }
 
 /* Call-to-action Button */
@@ -106,20 +42,7 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  transition: all 0.3s ease;
-}
-
-.cta-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.5), transparent);
-  transition: transform 0.3s ease;
-  transform: skewX(-45deg);
-  z-index: -1;
+  transition: none; /* Disable transition */
 }
 
 .cta-button:hover {
@@ -142,42 +65,14 @@ body {
   overflow: hidden;
 }
 
-.about::before,
-.about::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -100%;
-  right: -100%;
-  background: linear-gradient(90deg, rgba(0, 245, 255, 0.1), transparent);
-  animation: slideAnimation 5s linear infinite;
-}
-
-.about::after {
-  top: auto;
-  bottom: 0;
-  left: auto;
-  right: 0;
-  background: linear-gradient(-90deg, rgba(156, 26, 255, 0.1), transparent);
-}
-
-@keyframes slideAnimation {
-  0% { left: -100%; right: -100%; }
-  50% { left: 100%; right: 100%; }
-  100% { left: -100%; right: -100%; }
-}
-
 .about .animated-title {
   color: #00F5FF;
   font-size: 2.5em;
-  animation: fadeIn 2s ease-out forwards;
 }
 
 .about .subtext {
   font-size: 1.2em;
   color: #B0B0B0;
-  animation: fadeIn 3s ease-out forwards;
 }
 
 /* Experience Section */
@@ -190,23 +85,21 @@ body {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   margin-bottom: 30px;
   overflow: hidden;
   position: relative;
 }
 
 .experience .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(156, 26, 255, 0.8), 0 0 15px rgba(0, 245, 255, 0.8);
-  background: linear-gradient(135deg, #1A1A1A, #9C1AFF);
+  transform: none;
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .experience .card-title {
   font-size: 1.5rem;
   font-weight: 500;
   color: #00F5FF;
-  animation: bounceIn 0.6s ease-out;
 }
 
 .experience .card-body {
@@ -235,8 +128,6 @@ body {
   .hero-text,
   .cta-button,
   .hero,
-  .about::before,
-  .about::after,
   .about .animated-title,
   .about .subtext,
   .experience .card {
