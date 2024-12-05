@@ -14,21 +14,30 @@ body {
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-h1, h2, h3 {
-  font-family: 'Audiowide', sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #00F5FF; /* Neon Blue */
-  text-shadow: 0 0 15px #00F5FF, 0 0 25px #00F5FF, 0 0 30px #00F5FF;
-  animation: pulse 3s infinite alternate;
-}
-
-@keyframes pulse {
-  0% {
-    text-shadow: 0 0 20px #00F5FF, 0 0 30px #00F5FF, 0 0 40px #00F5FF;
+/* Animation Adjustments */
+@media (max-width: 768px) {
+  /* Reduce or remove animations on mobile */
+  .hero-text,
+  .cta-button {
+    animation: none;
   }
-  100% {
-    text-shadow: 0 0 30px #00F5FF, 0 0 40px #00F5FF, 0 0 50px #00F5FF;
+
+  .hero {
+    animation: none;
+  }
+
+  .about::before,
+  .about::after {
+    animation: none;
+  }
+
+  .about .animated-title,
+  .about .subtext {
+    animation: none;
+  }
+
+  .experience .card {
+    transition: transform 0.3s ease;
   }
 }
 
@@ -55,6 +64,7 @@ h1, h2, h3 {
   color: #fff;
   animation: glow 1.5s infinite alternate;
   position: relative;
+  will-change: transform, opacity;
 }
 
 .hero-text::after {
@@ -219,3 +229,18 @@ h1, h2, h3 {
   }
 }
 
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable animations if the user prefers reduced motion */
+  .hero-text,
+  .cta-button,
+  .hero,
+  .about::before,
+  .about::after,
+  .about .animated-title,
+  .about .subtext,
+  .experience .card {
+    animation: none;
+    transition: none;
+  }
+}
